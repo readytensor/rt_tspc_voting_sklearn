@@ -5,7 +5,6 @@ import joblib
 import numpy as np
 from sklearn.ensemble import VotingClassifier
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.svm import SVC
 from sklearn.linear_model import LogisticRegression
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.neural_network import MLPClassifier
@@ -65,7 +64,6 @@ class TimeStepClassificatier:
         """Build a new Voting Classifier."""
         base_learners = [
             ('rf', RandomForestClassifier(n_estimators=100, random_state=42)),
-            ('svc', SVC(kernel='rbf', C=1, degree=2, probability=True)),
             ('logistic', LogisticRegression(max_iter=1000)),
             ('mlp', MLPClassifier(
                 hidden_layer_sizes=(100,),
